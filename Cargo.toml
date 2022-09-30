@@ -1,0 +1,25 @@
+[package]
+name = "aleoprove"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "aleoprove"
+path = "src/main.rs"
+
+[dependencies]
+benchmarking = "0.4.11"
+console = "0.15.1"
+nvml-wrapper = "0.8.0"
+once_cell = "1.15.0"
+rand = "0.8"
+sysinfo = "0.26.4"
+snarkvm = { path="./snarkVM", features = [
+    "cuda",
+    "algorithms",
+    "curves",
+    "utilities",
+    "fields",
+    "r1cs",
+] }
+
