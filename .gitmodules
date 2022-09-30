@@ -1,0 +1,3 @@
+[submodule "snarkVM"]
+	path = snarkVM
+	url = https://github.com/AleoHQ/snarkVM.git
