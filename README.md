@@ -54,5 +54,6 @@ MinerDAO社区聚集了Aleo项目的矿工、开发者、投资人。
 
 - 微信号: maxmillion-eth (备注: MinerDAO)
   <img src="https://raw.githubusercontent.com/minerdao/posts/master/images/wechat-max.png" width="200">
+
 - [Telegram交流群](https://t.me/joinchat/TOGYnsZ2itA0NGZl)
 - [Discord交流群](https://discord.gg/4f3DjmDk7j)
