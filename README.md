@@ -43,6 +43,6 @@ aleoprove [degree] [max_degreee]
 
 ```sh
 Device: CPU 名字(核数), GPU 名字(核数)[V驱动版本]
-Proving: 100%, CPU 0%, Mem 79%, GPU 90%, GpuMem 3% 
-Time: 7431ms/每个prove, n个prove/s
+Proving: CPU 0%, GPU 90%, Elapsed 290s  Device with 11554848768 bytes of memory
+Result: 43ms/每个prove, n个prove/s
 ```
