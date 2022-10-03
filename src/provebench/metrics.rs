@@ -39,7 +39,7 @@ pub fn print_metrics(count: u32) {
     let gpu = GPU.utilization_rates().unwrap().gpu;
 
     TERM.move_cursor_up(1).unwrap();
-    let line = &format!("{: >25} CPU {cpu}% GPU: {gpu}%, elapsed:{count}s", title_style("Proving"));
+    let line = &format!("{: >25} CPU {cpu}% GPU: {gpu}%, Elapsed:{count}s", title_style("Proving"));
     TERM.write_line(line).unwrap();
 
     let t = Timer::new(Duration::from_secs(1), print_metrics, count+1);

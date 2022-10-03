@@ -9,7 +9,7 @@ fn handle_args() -> u32 {
     if env::args().len() == 2 {
         let subcommand = env::args().next_back().unwrap();
         if subcommand == "-h" {
-            println!("USAGE: ./provebench degree[10..23]");
+            println!("USAGE: ./aleoprove degree[10..23]");
             process::exit(-1);
         } else {
             degree = subcommand.parse::<u32>().expect("degree must be between 10 and 23");
@@ -25,7 +25,7 @@ fn handle_args() -> u32 {
 
 fn main() {
     let degree = handle_args();
-    metrics::print_title_info("Author", "The MinerDao Team <xxx@gmail.com>");
+    metrics::print_title_info("Author", "The MinerDao Team <minerdaoinfo@gmail.com>");
     metrics::print_title_info("Description", &format!("Aleo prove benchmark degree={}, elapse=5min", degree));
 
     benchmarking::warm_up();

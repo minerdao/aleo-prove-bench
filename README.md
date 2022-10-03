@@ -1,6 +1,6 @@
-# Aleo Prove benchmark
+# Aleo Prove bench
 
-## Aleo出块证明性能测试工具
+## Aleo Prove显卡测试工具
 
 <img src="./aleo_prove_screenshot.png" alt="Running aleo prove on terminal">
 
@@ -8,7 +8,7 @@
 
 - 显示系统设备CPU、GPU信息；
 - 显示证明时系统CPU、GPU占用率；
-- 配置证明时的多项式系数阶degree及最大阶max_degree；
+- 支持配置证明时的多项式系数阶degree及最大阶max_degree；
 
 ## 支持系统
 
@@ -16,21 +16,27 @@
 - MacOS
 - Windows
 
-## 前置条件
+## 依赖
 
 - Rust version > 1.58
 - cuda version > 11.2
 
 ## 编译
 
-```
+```bash
+cd aleo-prove-bench
+
+git submodule update
+
 cargo build --release
 ```
 
 ## 用法
 
-```
-alepprovebench [degree] [max_degreee]
+```bash
+cd aleo-prove-bench/target/release/
+
+aleoprove [degree] [max_degreee]
 ```
 
 ## 结果

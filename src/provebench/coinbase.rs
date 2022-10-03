@@ -10,8 +10,8 @@ type CoinbasePuzzleInst = CoinbasePuzzle<Testnet3>;
 
 // impl ProveBench {
 pub fn prove(duration: Duration, degree: u32, max_degree: u32) {
-    metrics::print_title_info("Wating", "Prove Setup");
-    
+    metrics::print_title_info("Waiting", "Prove Setup");
+
     let max_config = PuzzleConfig { degree: 2_u32.pow(max_degree) };
     let config = PuzzleConfig { degree: 2_u32.pow(degree) };
     let universal_srs = CoinbasePuzzleInst::setup(max_config, &mut thread_rng()).unwrap();
