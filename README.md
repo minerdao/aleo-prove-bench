@@ -22,7 +22,7 @@
 
 - Rust version > 1.58
 - cuda version > 11.2
-- [snarkVM - feat/new-posw-prover分支](https://github.com/AleoHQ/snarkVM/tree/feat/new-posw-prover)
+- [snarkVM - feat/coinbase_puzzle_header分支](https://github.com/AleoHQ/snarkVM/tree/feat/coinbase_puzzle_header)
 
 ## 编译
 
