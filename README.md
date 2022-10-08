@@ -27,9 +27,9 @@
 ## 编译
 
 ```bash
-cd aleo-prove-bench
+git clone https://github.com/minerdao/aleo-prove-bench.git && cd aleo-prove-bench
 
-git submodule update
+cargo update
 
 cargo build --release
 ```
@@ -37,17 +37,21 @@ cargo build --release
 ## 用法
 
 ```bash
-cd aleo-prove-bench/target/release/
+cd aleo-prove-bench
 
-aleoprove [degree] 2>/dev/null
+/target/release/aleoprove [degree] 2>/dev/null
+
+# 例如
+/target/release/aleoprove 18 2>/dev/null
+# 默认degree为15，degree最大不能超过20
 ```
 
 ## 结果
 
 ```sh
 Device: CPU 名字(核数), GPU 名字(核数)[V驱动版本]
-Proving: CPU 0%, GPU 90%, Elapsed 290s  Device with 11554848768 bytes of memory
-Result: 43ms/每个prove, n个prove/s
+Proving: CPU 0%, GPU 90%, Elapsed 290s
+Result: CoinBase on prove: 43 ms(平均每个prove的执行时间), 23个prove/s
 ```
 
 ## 加入社群
