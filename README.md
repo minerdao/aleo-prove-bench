@@ -24,6 +24,8 @@
 - cuda version > 11.2
 - [snarkVM - feat/coinbase_puzzle_header分支](https://github.com/AleoHQ/snarkVM/tree/feat/coinbase_puzzle_header)
 
+**注意：显卡驱动版本需要大于500，在515.76上测试通过**
+
 ## 编译
 
 ```bash
