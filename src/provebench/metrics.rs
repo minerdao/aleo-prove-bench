@@ -3,8 +3,7 @@ use nvml_wrapper::{Nvml, Device};
 use once_cell::sync::Lazy;
 // use sysinfo::{CpuExt, System, SystemExt};
 use sysinfo::{PidExt, ProcessExt, CpuExt, System, SystemExt};
-use std::{thread};
-// use std::{thread, process};
+use std::{thread, process};
 use std::time::Duration;
 use benchmarking::MeasureResult;
 
@@ -36,6 +35,13 @@ pub fn print_metrics(count: u32) {
     let sys = System::new_all();
     let cpu = sys.global_cpu_info().frequency();
     // let cpu = sys.process(PidExt::from_u32(process::id())).unwrap().cpu_usage();
+    // let pid = process::id();
+    // let pidext = PidExt::from_u32(pid);
+    // let ps = sys.process(pidext).unwrap();
+    // let cpu = ps.cpu_usage();
+    // println!("{pid}, {:?}", ps.exe());
+
+
     let gpu = GPU.utilization_rates().unwrap().gpu;
 
     TERM.move_cursor_up(1).unwrap();

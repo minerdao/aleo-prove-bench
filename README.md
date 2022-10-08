@@ -36,7 +36,7 @@ cargo build --release
 ```bash
 cd aleo-prove-bench/target/release/
 
-aleoprove [degree] [max_degreee]
+aleoprove [degree] 2>/dev/null
 ```
 
 ## 结果
