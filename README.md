@@ -43,8 +43,10 @@ wget -c https://cs-sz-aleo.oss-cn-shenzhen.aliyuncs.com/resource/universal.srs
 ./target/release/aleoprove [degree] 2>/dev/null
 
 # 例如
-./target/release/aleoprove 18 2>/dev/null
+./target/release/aleoprove 2>/dev/null
 # 默认degree为15，degree最大不能超过20
+
+./target/release/aleoprove 18 2>/dev/null
 ```
 
 ## 结果
