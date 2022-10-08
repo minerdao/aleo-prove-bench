@@ -76,7 +76,7 @@ pub fn print_device_info() {
 pub fn print_result(name_fn: &str, result: MeasureResult) {
     let time = result.elapsed().as_millis();
     let count = 1000 / time;//result.times() / result.elapsed().as_secs() as u128;
-    println!("{: >25} {name_fn} {time}ms {count}prove/s", title_style("Result"));
+    println!("{: >25} {name_fn} {time}ms/prove  {count}proves/s", title_style("Result"));
 }
 
 pub fn print_title_info(title: &str, info: &str) {

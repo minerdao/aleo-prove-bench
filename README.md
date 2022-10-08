@@ -10,7 +10,7 @@
 - [x] 显示证明时系统CPU、GPU占用率；
 - [x] 支持配置证明时的多项式系数阶degree及最大阶max_degree；
 - [ ] 支持多显卡并行处理；
-- [ ] 针对不同的显卡调优，如GeForce 2660s；
+- [ ] 针对不同的显卡进行优化，如GeForce RTX 2660s；
 
 ## 支持系统
 
@@ -52,7 +52,7 @@ wget -c https://cs-sz-aleo.oss-cn-shenzhen.aliyuncs.com/resource/universal.srs
 ```sh
 Device: CPU 名字(核数), GPU 名字(核数)[V驱动版本]
 Proving: CPU 0%, GPU 90%, Elapsed 290s
-Result: CoinBase on prove: 43 ms(平均每个prove的执行时间), 23个prove/s
+Result: CoinBase on prove: 43prove/ms(平均每个prove的执行时间), 23proves/s(每秒完成的prove数量)
 ```
 
 ## 加入社群
