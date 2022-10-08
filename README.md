@@ -26,6 +26,13 @@
 
 **注意：显卡驱动版本需要大于500，在515.76上测试通过**
 
+## 环境准备
+```bash
+sudo apt update -y
+
+sudo apt install libssl-dev pkg-config nvidia-cuda-toolkit
+```
+
 ## 编译
 
 ```bash
@@ -34,7 +41,7 @@ git clone https://github.com/minerdao/aleo-prove-bench.git && cd aleo-prove-benc
 cargo build --release
 ```
 
-## 用法
+## 如何使用
 
 ```bash
 cd aleo-prove-bench
