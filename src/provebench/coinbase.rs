@@ -53,7 +53,7 @@ pub fn prove(duration: Duration, degree: u32) {
     })
     .unwrap();
 
-    print_result("CoinBase on prove: ", result);
+    print_result("CoinBase on prove:", result);
 }
 
 // fn accumulate_prove(c: &mut Criterion) {

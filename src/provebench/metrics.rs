@@ -1,9 +1,10 @@
 use console::{style, Term};
 use nvml_wrapper::{Nvml, Device};
 use once_cell::sync::Lazy;
-// use sysinfo::{CpuExt, System, SystemExt};
-use sysinfo::{PidExt, ProcessExt, CpuExt, System, SystemExt};
-use std::{thread, process};
+use sysinfo::{CpuExt, System, SystemExt};
+// use sysinfo::{PidExt, ProcessExt, CpuExt, System, SystemExt};
+// use std::{thread, process};
+use std::{thread};
 use std::time::Duration;
 use benchmarking::MeasureResult;
 
@@ -39,13 +40,13 @@ pub fn print_metrics(count: u32) {
     // let pidext = PidExt::from_u32(pid);
     // let ps = sys.process(pidext).unwrap();
     // let cpu = ps.cpu_usage();
-    // println!("{pid}, {:?}", ps.exe());
+    // println!("{pid}, {cpu} {:?}", ps.exe());
 
 
     let gpu = GPU.utilization_rates().unwrap().gpu;
 
     TERM.move_cursor_up(1).unwrap();
-    let line = &format!("{: >25} CPU {cpu}% GPU: {gpu}%, Elapsed:{count}s", title_style("Proving"));
+    let line = &format!("{: >25} CPU: {cpu}% GPU: {gpu}%, Elapsed: {count}s", title_style("Proving"));
     TERM.write_line(line).unwrap();
 
     let t = Timer::new(Duration::from_secs(1), print_metrics, count+1);
@@ -74,9 +75,8 @@ pub fn print_device_info() {
 
 pub fn print_result(name_fn: &str, result: MeasureResult) {
     let time = result.elapsed().as_millis();
-    let count = result.times() / 60;
-
-    println!("{: >25} {name_fn} {time}ms {count}/s", title_style("Result"));
+    let count = 1000 / time;//result.times() / result.elapsed().as_secs() as u128;
+    println!("{: >25} {name_fn} {time}ms {count}prove/s", title_style("Result"));
 }
 
 pub fn print_title_info(title: &str, info: &str) {

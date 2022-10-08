@@ -19,7 +19,7 @@ fn handle_args() -> u32 {
             }
         }
     }
-    
+
     return degree;
 }
 
