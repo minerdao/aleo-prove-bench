@@ -29,8 +29,6 @@
 ```bash
 git clone https://github.com/minerdao/aleo-prove-bench.git && cd aleo-prove-bench
 
-cargo update
-
 cargo build --release
 ```
 
@@ -39,10 +37,13 @@ cargo build --release
 ```bash
 cd aleo-prove-bench
 
-/target/release/aleoprove [degree] 2>/dev/null
+# 下载universal文件
+wget -c https://cs-sz-aleo.oss-cn-shenzhen.aliyuncs.com/resource/universal.srs
+
+./target/release/aleoprove [degree] 2>/dev/null
 
 # 例如
-/target/release/aleoprove 18 2>/dev/null
+./target/release/aleoprove 18 2>/dev/null
 # 默认degree为15，degree最大不能超过20
 ```
 
