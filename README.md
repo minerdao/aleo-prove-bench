@@ -66,7 +66,7 @@ Proving: CPU 0%, GPU 90%, Elapsed 290s
 Result: CoinBase on prove: 43prove/ms(平均每个prove的执行时间), 23proves/s(每秒完成的prove数量)
 ```
 **⚠️ 注意：**
-首次运行时，生成`～/.aleo/resources/cuda/msm.fatbin`文件需要一些时间，会影响测试结果，请勿以首次运行的数据为准。
+首次运行时，生成`~/.aleo/resources/cuda/msm.fatbin`文件需要一些时间，会影响测试结果，请勿以首次运行的数据为准。
 
 
 
