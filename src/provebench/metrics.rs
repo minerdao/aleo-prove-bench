@@ -40,17 +40,16 @@ pub fn print_device_info() {
     }
     let (major, minor) = (cuda_driver_version_major(cuda_version), cuda_driver_version_minor(cuda_version));
     let nvidia_version = NVML_CUDA.sys_driver_version().unwrap();
-    
+
     print!("{: >25} [", title_style("Device GPU"));
 
     for i in 0..NVML_CUDA.device_count().unwrap_or(0) {
         let gpu = NVML_CUDA.device_by_index(i).expect(&format!("Nvidia device {i} is not initialized"));
         let (gname, gcores) = (gpu.name().unwrap(), gpu.num_cores().unwrap());
 
-        print!("{gname}({gcores}), "); 
+        print!("{gname}({gcores}), ");
     }
     println!("], version {major}.{minor}/{nvidia_version}");
-
 }
 
 pub fn print_backgroud_metrics(elapse: usize) {
@@ -58,7 +57,7 @@ pub fn print_backgroud_metrics(elapse: usize) {
 
     let mut sys = System::new_all();
     thread::spawn(move || {
-    // let (cpu_max, gpu_max) = thread::spawn(move || {
+        // let (cpu_max, gpu_max) = thread::spawn(move || {
         for i in 0..elapse {
             thread::sleep(Duration::from_secs(1));
             sys.refresh_all();
@@ -66,18 +65,20 @@ pub fn print_backgroud_metrics(elapse: usize) {
             let ps = sys.processes_by_name("aleoprove").last().unwrap();
             let cpu = ps.cpu_usage().ceil() as u32;
             let gpus: Vec<u32> = (0..NVML_CUDA.device_count().unwrap_or(0))
-            .into_iter()
-            .map(|i| {
-                let d = NVML_CUDA.device_by_index(i).expect(&format!("Nvidia device {i} is not initialized"));
-                d.utilization_rates().unwrap().gpu
-            })
-            .collect();
-            let gpu = gpus[0];
-
+                .into_iter()
+                .map(|i| {
+                    let d = NVML_CUDA.device_by_index(i).expect(&format!("Nvidia device {i} is not initialized"));
+                    d.utilization_rates().unwrap().gpu
+                })
+                .collect();
             // cpu_max = std::cmp::max(cpu, cpu_max);
             // gpu_max = std::cmp::max(gpus[0], gpu_max);
 
-            print_rewrite_line(&format!("{: >25} CPU: {cpu}% GPU: {gpu}%, Elapsed: {i}s    ", title_style("Proving")));
+            print_rewrite_line(&format!(
+                "{: >25} CPU: {cpu}% GPU: [{},{0},{0},{0}]%, Elapsed: {i}s    ",
+                title_style("Proving"),
+                gpus[0],
+            ));
         }
         // (cpu_max, gpu_max)
     });
@@ -85,5 +86,3 @@ pub fn print_backgroud_metrics(elapse: usize) {
     // .unwrap();
     // print_rewrite_line(&format!("{: >25} CPU: {cpu_max}% GPU: {gpu_max}%, Elapsed: {elapse}s", title_style("Proving")));
 }
-
-
