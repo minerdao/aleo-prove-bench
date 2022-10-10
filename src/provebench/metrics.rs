@@ -81,6 +81,10 @@ pub fn print_device_info() {
         cuda_driver_version_minor(cuda_version),
     );
 
+    if major < 11 && minor < 2 {
+        println!("{: >25} cuda version must > 11.2, will run on cpu", title_style("Error"));
+    }
+
     let nvidia_version = NVML_CUDA.sys_driver_version().unwrap();
 
     println!(
