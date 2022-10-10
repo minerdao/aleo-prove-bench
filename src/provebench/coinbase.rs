@@ -40,7 +40,7 @@ pub fn prove(duration: Duration, degree: u32) {
     let config = PuzzleConfig {  degree: 2_u32.pow(degree), };
     let provekey = CoinbasePuzzleInst::trim(&universal_srs, config).unwrap().0;
 
-    print_backgroud_metrics();
+    print_backgroud_metrics(duration.as_secs() as usize);
 
     let result = benchmarking::bench_function_with_duration(duration, move |b| {  
         b.measure(|| {

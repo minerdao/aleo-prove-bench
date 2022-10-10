@@ -31,12 +31,12 @@ fn main() {
     benchmarking::warm_up();
 
     metrics::print_device_info();
-    // metrics::print_backgroud_metrics();
+    // metrics::print_backgroud_metrics(10);
 
     let duration = time::Duration::from_secs(5 * 60);
     coinbase::bench(duration, degree);
 
-    metrics::print_title_info("Submit", "Please submit your result here: https://github.com/minerdao/aleo-prove-bench/issues/new/choose");
+    // metrics::print_title_info("Submit", "Please submit your result here: https://github.com/minerdao/aleo-prove-bench/issues/new/choose");
     // msm::bench(2_000_000);
     // hash::bench();
     // fft::bench(1 << 22);
