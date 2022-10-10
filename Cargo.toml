@@ -14,12 +14,16 @@ nvml-wrapper = "0.8.0"
 once_cell = "1.15.0"
 rand = "0.8"
 sysinfo = "0.26.4"
-# snarkvm = { path="./snarkVM", features = [
-snarkvm = { git = "https://github.com/AleoHQ/snarkVM.git", rev = "2eb1d44", features = [
+
+[dependencies.snarkvm]
+git = "https://github.com/AleoHQ/snarkVM.git"
+branch = "feat/coinbase_puzzle_header"
+features = [
     "cuda",
     "algorithms",
     "curves",
-    "utilities",
     "fields",
     "r1cs",
-] }
+    "utilities",
+    "parallel",
+]
