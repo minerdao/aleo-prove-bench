@@ -14,8 +14,8 @@ fn title_style(s: &str) -> String {
 
 pub fn print_result(name_fn: &str, result: MeasureResult) {
     let time = result.elapsed().as_millis();
-    let count = 1000 / time; //result.times() / result.elapsed().as_secs() as u128;
-    println!("{: >25} {name_fn} {time}ms {count}prove/s", title_style("Result"));
+    let count = 1000 / (time + 1); //result.times() / result.elapsed().as_secs() as u128;
+    println!("{: >25} {name_fn} {time}ms {count}prove/s\n", title_style("Result"));
 }
 
 pub fn print_title_info(title: &str, info: &str) {
@@ -52,13 +52,12 @@ pub fn print_device_info() {
     println!("], version {major}.{minor}/{nvidia_version}");
 }
 
-pub fn print_backgroud_metrics(elapse: usize) {
-    print_rewrite_line(&format!("\n{: >25} CPU: 0% GPU: 0%, Elapsed: 0s", title_style("Proving")));
+pub fn print_backgroud_metrics(sec_elapse: usize) {
+    // print_rewrite_line(&format!("\n{: >25} CPU:0% GPU:[0,0,]%, Elapsed:0s {}", title_style("Proving"), " ".repeat(20)));
 
     let mut sys = System::new_all();
     thread::spawn(move || {
-        // let (cpu_max, gpu_max) = thread::spawn(move || {
-        for i in 0..elapse {
+        for i in 0..sec_elapse {
             thread::sleep(Duration::from_secs(1));
             sys.refresh_all();
 
@@ -71,18 +70,13 @@ pub fn print_backgroud_metrics(elapse: usize) {
                     d.utilization_rates().unwrap().gpu
                 })
                 .collect();
-            // cpu_max = std::cmp::max(cpu, cpu_max);
-            // gpu_max = std::cmp::max(gpus[0], gpu_max);
 
             print_rewrite_line(&format!(
-                "{: >25} CPU: {cpu}% GPU: [{},{0},{0},{0}]%, Elapsed: {i}s    ",
+                "{: >25} CPU:{cpu}% GPU:[{},0,]%, Elapsed:{i}s{}",
                 title_style("Proving"),
                 gpus[0],
+                " ".repeat(40)
             ));
         }
-        // (cpu_max, gpu_max)
     });
-    // .join()
-    // .unwrap();
-    // print_rewrite_line(&format!("{: >25} CPU: {cpu_max}% GPU: {gpu_max}%, Elapsed: {elapse}s", title_style("Proving")));
 }

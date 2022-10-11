@@ -2,7 +2,7 @@
 
 mod provebench;
 use provebench::*;
-use std::{env, process, time};
+use std::{env, process};
 
 fn handle_args() -> u32 {
     let mut degree: u32 = 12;
@@ -27,16 +27,11 @@ fn main() {
     let degree = handle_args();
     metrics::print_title_info("Author", "The MinerDao Team <minerdaoinfo@gmail.com>");
     metrics::print_title_info("Description", &format!("Aleo prove benchmark degree={}, elapse=5min", degree));
-
-    benchmarking::warm_up();
-
+    metrics::print_title_info("Submit", "Please submit your result here: https://github.com/minerdao/aleo-prove-bench/issues/new/choose");
     metrics::print_device_info();
-    // metrics::print_backgroud_metrics(10);
 
-    let duration = time::Duration::from_secs(5 * 60);
-    coinbase::bench(duration, degree);
-
-    // metrics::print_title_info("Submit", "Please submit your result here: https://github.com/minerdao/aleo-prove-bench/issues/new/choose");
+    coinbase::bench(degree);
+    
     // msm::bench(2_000_000);
     // hash::bench();
     // fft::bench(1 << 22);
