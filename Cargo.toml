@@ -23,7 +23,7 @@ features = [ "cpu", "storage", "time", "timed" ]
 
 [dependencies.snarkvm]
 git = "https://github.com/AleoHQ/snarkVM.git"
-branch = "feat/new-posw-prover"
+branch = "feat/snarkvm-cuda"
 features = [
     "cuda",
     "algorithms",

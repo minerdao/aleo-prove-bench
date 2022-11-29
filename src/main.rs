@@ -5,7 +5,7 @@ use provebench::*;
 use std::{env, process};
 
 fn handle_args() -> u32 {
-    let mut degree: u32 = 12;
+    let mut degree: u32 = 13;
     if env::args().len() == 2 {
         let subcommand = env::args().next_back().unwrap();
         if subcommand == "-h" {
