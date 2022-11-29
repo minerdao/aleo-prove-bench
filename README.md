@@ -41,6 +41,9 @@ git clone https://github.com/minerdao/aleo-prove-bench.git && cd aleo-prove-benc
 cargo build --release
 ```
 
+**⚠️ 注意：**
+由于aleo-std的版本冲突，请不要执行`cargo update`更新，会造成编译失败。
+
 ## 如何使用
 
 ```bash
