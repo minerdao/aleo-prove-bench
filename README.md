@@ -22,7 +22,7 @@
 
 - Rust version > 1.58
 - cuda version > 11.2
-- [snarkVM - feat/coinbase_puzzle_header分支](https://github.com/AleoHQ/snarkVM/tree/feat/coinbase_puzzle_header)
+- [snarkVM - feat/new-posw-prover分支](https://github.com/AleoHQ/snarkVM/tree/feat/new-posw-prover)
 
 **注意：显卡驱动版本需要大于500，在515.76上测试通过**
 
@@ -40,6 +40,9 @@ git clone https://github.com/minerdao/aleo-prove-bench.git && cd aleo-prove-benc
 
 cargo build --release
 ```
+
+**⚠️ 注意：**
+由于aleo-std的版本冲突，请不要执行`cargo update`更新，会造成编译失败。
 
 ## 如何使用
 

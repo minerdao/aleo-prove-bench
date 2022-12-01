@@ -11,15 +11,13 @@ rand = "0.8.5"
 sysinfo = "0.26.8"
 
 [dependencies.snarkvm]
-# git = "https://github.com/AleoHQ/snarkVM.git"
-# branch = "feat/snarkvm-cuda"
-path = "../snarkvm"
+git = "https://github.com/AleoHQ/snarkVM.git"
+branch = "feat/snarkvm-cuda"
 features = [
     "cuda",
     "algorithms",
     "curves",
     "fields",
-#     "r1cs",
     "utilities",
     "parallel",
 ]
