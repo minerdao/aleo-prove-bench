@@ -1,4 +1,4 @@
-use benchmarking::MeasureResult;
+// use benchmarking::MeasureResult;
 use console::Term;
 use nvml_wrapper::{cuda_driver_version_major, cuda_driver_version_minor, Nvml};
 use once_cell::sync::Lazy;
@@ -12,11 +12,11 @@ fn title_style(s: &str) -> String {
     console::style(s).green().bold().to_string()
 }
 
-pub fn print_result(name_fn: &str, result: MeasureResult) {
-    let time = result.elapsed().as_millis();
-    let count = 1000 / (time + 1); //result.times() / result.elapsed().as_secs() as u128;
-    println!("{: >25} {name_fn} {time}ms {count}prove/s\n", title_style("Result"));
-}
+// pub fn print_result(name_fn: &str, result: MeasureResult) {
+//     let time = result.elapsed().as_millis();
+//     let count = 1000 / (time + 1); //result.times() / result.elapsed().as_secs() as u128;
+//     println!("{: >25} {name_fn} {time}ms {count}prove/s\n", title_style("Result"));
+// }
 
 pub fn print_title_info(title: &str, info: &str) {
     println!("{: >25} {info}", title_style(title));
