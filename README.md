@@ -49,9 +49,6 @@ cargo build --release
 ```bash
 cd aleo-prove-bench
 
-# 下载universal文件，和aleoprove可执行文件放在同一目录
-wget -c https://cs-sz-aleo.oss-cn-shenzhen.aliyuncs.com/resource/universal.srs
-
 ./target/release/aleoprove [degree] 2>/dev/null
 
 # 例如
