@@ -9,10 +9,14 @@ nvml-wrapper = "0.8.0"
 once_cell = "1.16.0"
 rand = "0.8.5"
 sysinfo = "0.26.8"
+tokio = { version = "1.16", features = ["full"] }
+anyhow = "1.0.66"
+futures = "0.3.25"
 
 [dependencies.snarkvm]
-git = "https://github.com/AleoHQ/snarkVM.git"
-branch = "feat/snarkvm-cuda"
+# git = "https://github.com/AleoHQ/snarkVM.git"
+# branch = "feat/snarkvm-cuda"
+path = "../snarkvm"
 features = [
     "cuda",
     "algorithms",

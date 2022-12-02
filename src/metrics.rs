@@ -1,10 +1,10 @@
 // use benchmarking::MeasureResult;
-use console::Term;
+// use console::Term;
 use nvml_wrapper::{cuda_driver_version_major, cuda_driver_version_minor, Nvml};
 use once_cell::sync::Lazy;
-use std::thread;
-use std::time::Duration;
-use sysinfo::{CpuExt, ProcessExt, System, SystemExt};
+// use std::thread;
+// use std::time::Duration;
+use sysinfo::{CpuExt, System, SystemExt};
 
 static NVML_CUDA: Lazy<Nvml> = Lazy::new(|| Nvml::init().expect("Nvidia context is not initialized"));
 
@@ -22,11 +22,11 @@ pub fn print_title_info(title: &str, info: &str) {
     println!("{: >25} {info}", title_style(title));
 }
 
-fn print_rewrite_line(line: &String) {
-    let term = Term::stdout();
-    term.move_cursor_up(1).unwrap();
-    term.write_line(line).unwrap();
-}
+// fn print_rewrite_line(line: &String) {
+//     let term = Term::stdout();
+//     term.move_cursor_up(1).unwrap();
+//     term.write_line(line).unwrap();
+// }
 
 pub fn print_device_info() {
     let cpu = System::new_all();
@@ -52,31 +52,31 @@ pub fn print_device_info() {
     println!("], version {major}.{minor}/{nvidia_version}");
 }
 
-pub fn print_backgroud_metrics(sec_elapse: usize) {
-    // print_rewrite_line(&format!("\n{: >25} CPU:0% GPU:[0,0,]%, Elapsed:0s {}", title_style("Proving"), " ".repeat(20)));
+// pub fn print_backgroud_metrics(sec_elapse: usize) {
+//     // print_rewrite_line(&format!("\n{: >25} CPU:0% GPU:[0,0,]%, Elapsed:0s {}", title_style("Proving"), " ".repeat(20)));
 
-    let mut sys = System::new_all();
-    thread::spawn(move || {
-        for i in 0..sec_elapse {
-            thread::sleep(Duration::from_secs(1));
-            sys.refresh_all();
+//     let mut sys = System::new_all();
+//     thread::spawn(move || {
+//         for i in 0..sec_elapse {
+//             thread::sleep(Duration::from_secs(1));
+//             sys.refresh_all();
 
-            let ps = sys.processes_by_name("aleoprove").last().unwrap();
-            let cpu = ps.cpu_usage().ceil() as u32;
-            let gpus: Vec<u32> = (0..NVML_CUDA.device_count().unwrap_or(0))
-                .into_iter()
-                .map(|i| {
-                    let d = NVML_CUDA.device_by_index(i).expect(&format!("Nvidia device {i} is not initialized"));
-                    d.utilization_rates().unwrap().gpu
-                })
-                .collect();
+//             let ps = sys.processes_by_name("aleoprove").last().unwrap();
+//             let cpu = ps.cpu_usage().ceil() as u32;
+//             let gpus: Vec<u32> = (0..NVML_CUDA.device_count().unwrap_or(0))
+//                 .into_iter()
+//                 .map(|i| {
+//                     let d = NVML_CUDA.device_by_index(i).expect(&format!("Nvidia device {i} is not initialized"));
+//                     d.utilization_rates().unwrap().gpu
+//                 })
+//                 .collect();
 
-            print_rewrite_line(&format!(
-                "{: >25} CPU:{cpu}% GPU:[{},0,]%, Elapsed:{i}s{}",
-                title_style("Proving"),
-                gpus[0],
-                " ".repeat(40)
-            ));
-        }
-    });
-}
+//             print_rewrite_line(&format!(
+//                 "{: >25} CPU:{cpu}% GPU:[{},0,]%, Elapsed:{i}s{}",
+//                 title_style("Proving"),
+//                 gpus[0],
+//                 " ".repeat(40)
+//             ));
+//         }
+//     });
+// }
