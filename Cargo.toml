@@ -14,9 +14,9 @@ anyhow = "1.0.66"
 futures = "0.3.25"
 
 [dependencies.snarkvm]
-# git = "https://github.com/AleoHQ/snarkVM.git"
-# branch = "feat/snarkvm-cuda"
-path = "../snarkvm"
+git = "https://github.com/minerdao/snarkVM.git"
+branch = "feat/snarkvm-cuda"
+# path = "../snarkvm"
 features = [
     "cuda",
     "algorithms",

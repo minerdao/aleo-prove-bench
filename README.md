@@ -22,7 +22,7 @@
 
 - Rust version > 1.58
 - cuda version > 11.2
-- [snarkVM - feat/new-posw-prover分支](https://github.com/AleoHQ/snarkVM/tree/feat/new-posw-prover)
+- [snarkVM - feat/snarkvm-cuda分支](https://github.com/AleoHQ/snarkVM/tree/feat/snarkvm-cuda)
 
 **注意：显卡驱动版本需要大于500，在515.76上测试通过**
 

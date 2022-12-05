@@ -56,17 +56,6 @@ async fn prove<N: Network>(degree: u32) -> Result<()> {
     // let _ = tokio::try_join!(handles);
     let _= join_all(handles);
 
-    // for i in 0..100 {
-    //     let nonce = i * nonce_width;
-    //     let pk = proving_key.clone();
-    //     let ch = challenge.clone();
-    //     thread::spawn(move || {
-    //         let _ = prove_solution(i as u32, &pk, &ch, address, nonce);
-    //     })
-    //     .join()
-    //     .unwrap();
-    // }
-
     Ok(())
 }
 
